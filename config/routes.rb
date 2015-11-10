@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+
+
+  root 'products#index'
+  devise_for :partners
   resources :stores
-  get 'cart/add'
-
-  get 'cart/clearCart'
-
-  get 'cart/index'
+  
+  get '/cart/clear' => 'cart#clearCart'
+  get '/cart/:id' => 'cart#add'
+  get 'cart' => 'cart#index'
 
   resources :products
   get 'pages/about'

@@ -1,14 +1,10 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+<% print %>
+ 
+  <%= image_tag @product.image_url(:large).to_s %>
+ <p><strong><%= @product.title %></strong></p>
+ <p><%= @product.description %></p>
 
 <p>
   <strong>Quantity:</strong>
@@ -26,13 +22,8 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @product.image %>
-</p>
-
-<p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  £<%= @product.price %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
