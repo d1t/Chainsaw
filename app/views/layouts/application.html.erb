@@ -12,6 +12,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<p class="navbar-text pull-right">
+<% if partner_signed_in? %>
+
+Logged in as <strong><%= current_partner.email %></strong>.
+<%= link_to 'Edit profile', edit_partner_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_partner_session_path, method: :delete, :class => 'navbar-link'  %>
+
+  <% else %>
+
+   <%= link_to "Sign up", new_partner_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_partner_session_path, :class => 'navbar-link'  %>
+
+  <% end %>
+
+</p>
+
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
