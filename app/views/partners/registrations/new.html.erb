@@ -21,6 +21,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <%= f.fields_for :store do |sf| %>
+    <%= sf.hidden_field :partner_id %>
+    <div class="field">
+      <%= sf.file_field :image_url %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
