@@ -6,4 +6,12 @@ class Partner < ActiveRecord::Base
 
   has_one :store
   has_many :products, through: :store
+
+  before_create :add_store
+
+private
+
+  def add_store
+    self.build_store
+  end
 end
