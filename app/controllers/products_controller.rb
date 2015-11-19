@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
   end
 
   # GET /products/new
@@ -24,7 +26,8 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_partner.products.build(product_params)
+    @product.store = current_partner.store
 
     respond_to do |format|
       if @product.save
@@ -64,7 +67,22 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = if current_partner
+        current_partner.products.find_by(id: params[:id])
+      else
+        Product.find(params[:id])
+      end
+      unless @product
+        flash[:alert] = 'Unauthorized for logged user'
+        redirect_to products_path
+      end
+    end
+
+    def authorize
+      unless current_partner
+        flash[:alert] = 'Unauthorized'
+        redirect_to products_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
