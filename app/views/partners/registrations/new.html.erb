@@ -23,7 +23,8 @@
 
   <%= f.fields_for :store do |sf| %>
     <div class="field">
-      <%= sf.file_field :image_url %>
+      <%= sf.label :image %><br>
+      <%= sf.file_field :image %>
     </div>
   <% end %>
 
