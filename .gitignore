@@ -17,3 +17,5 @@
 /tmp
 
 .*.s[a-w][a-z]
+
+public/uploads/**/*

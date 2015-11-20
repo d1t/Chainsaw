@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'products#index'
   devise_for :partners
 
+  get '/profile' => 'profile#show'
+
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add'
   get 'cart' => 'cart#index'
