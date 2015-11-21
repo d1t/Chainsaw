@@ -1,6 +1,5 @@
 class Store < ActiveRecord::Base
   has_many :products
   belongs_to :partner
-
-  validates :partner, presence: true
+  mount_uploader :image, ImageUploader
 end

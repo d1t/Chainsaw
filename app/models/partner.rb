@@ -7,11 +7,13 @@ class Partner < ActiveRecord::Base
   has_one :store
   has_many :products, through: :store
 
-  before_create :add_store
+  after_initialize :add_store
+
+  accepts_nested_attributes_for :store
 
 private
 
   def add_store
-    self.build_store
+    self.build_store unless store
   end
 end
