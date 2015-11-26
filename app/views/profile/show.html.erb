@@ -1,6 +1,7 @@
 
-<%= image_tag current_partner.store.image_url(:avatar).to_s, class: 'img-circle' %>
+<%= image_tag(current_partner.store.image_url(:avatar).to_s, class: 'img-circle') if current_partner.store.image? %>
 
+<p><%= current_partner.store.brand_bio %></p>
 
 <% current_partner.products.in_groups_of(3, false).each do |group| %>
   <div class="row">
@@ -21,3 +22,5 @@
     <% end %>
   </div>
 <% end %>
+
+<%= link_to 'New Product', new_product_path %>
