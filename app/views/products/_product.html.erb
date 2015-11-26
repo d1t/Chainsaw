@@ -1,0 +1,18 @@
+<div class="col-md-4" style: "center-block">
+  <div><%= image_tag product.image_url(:index).to_s %></div>
+  <div><%= product.title %></div>
+  <div><% product.description %></div>
+  <div><% product.quantity %></div>
+  <div><% product.category %></div>
+  <div><% product.subcategory %></div>
+  <div>£<%= product.price %></div>
+  <div>
+    <%= link_to 'Show', product %>
+    <% if params[:controller] == 'profile'  %>
+      <%= link_to 'Edit', edit_product_path(product) %>
+      <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% else %>
+      <a href="/cart/<%= product.id %>"> Add to cart</a>
+    <% end %>
+  </div>
+</div>

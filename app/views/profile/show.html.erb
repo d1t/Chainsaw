@@ -6,21 +6,10 @@
 <% current_partner.products.in_groups_of(3, false).each do |group| %>
   <div class="row">
     <% for product in group %>
-      <div class="col-md-4" style: "center-block">
-        <div><%= image_tag product.image_url(:index).to_s %></div>
-        <div><%= product.title %></div>
-        <div><% product.description %></div>
-        <div><% product.quantity %></div>
-        <div><% product.category %></div>
-        <div><% product.subcategory %></div>
-        <div>£<%= product.price %></div>
-          <div><%= link_to 'Show', product %>
-              <%= link_to 'Edit', edit_product_path(product) %>
-              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-      </div>
+      <%= render product %>
     <% end %>
   </div>
 <% end %>
 
+<br />
 <%= link_to 'New Product', new_product_path %>
