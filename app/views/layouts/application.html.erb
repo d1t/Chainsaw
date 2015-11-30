@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Mix</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <head>
+    <title>Mix</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css'>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<p class="navbar-text pull-right">
-<% if partner_signed_in? %>
+    <p class="navbar-text pull-right">
+    <% if partner_signed_in? %>
 
-Logged in as <strong><%= current_partner.email %></strong>.
-<%= link_to 'Edit profile', edit_partner_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_partner_session_path, method: :delete, :class => 'navbar-link'  %>
+      Logged in as <strong><%= current_partner.email %></strong>.
+      <%= link_to 'Profile', profile_path, :class => 'navbar-link' %> |
+      <%= link_to 'Edit profile', edit_partner_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_partner_session_path, method: :delete, :class => 'navbar-link'  %>
 
-  <% else %>
+    <% else %>
 
-   <%= link_to "Sign up", new_partner_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_partner_session_path, :class => 'navbar-link'  %>
+      <%= link_to "Sign up", new_partner_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "Login", new_partner_session_path, :class => 'navbar-link'  %>
 
-  <% end %>
+    <% end %>
 
-</p>
+    </p>
 
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
