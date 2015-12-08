@@ -1,0 +1,18 @@
+
+img {
+	height: 100px;
+	width: 50px;
+}
+
+.empty-btn {
+	background: #000;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 100px;
+}
+
+.empty-btn a {
+text-decoration: none;
+font-color: #fff;
+text-decoration: none;
+}

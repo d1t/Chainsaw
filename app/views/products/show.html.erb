@@ -1,0 +1,30 @@
+
+
+<% print %>
+ 
+  <%= image_tag @product.image_url(:large).to_s %>
+ <p><strong><%= @product.title %></strong></p>
+ <p><%= @product.description %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category %>
+</p>
+
+<p>
+  <strong>Subcategory:</strong>
+  <%= @product.subcategory %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  £<%= @product.price %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

@@ -1,0 +1,21 @@
+
+
+<%= image_tag(current_partner.store.image_url(:avatar).to_s, class: 'img-circle') if current_partner.store.image? %>
+
+<div class="bio">
+	<h3><%= current_partner.store.brand_name %></h3>
+	<h5>@<%= current_partner.username %></h5>
+	<h5><%= current_partner.store.brand_bio %></h5>
+	<h5><strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers</h5>
+</div>
+
+<% current_partner.products.in_groups_of(3, false).each do |group| %>
+  <div class="row">
+    <% for product in group %>
+      <%= render product %>
+    <% end %>
+  </div>
+<% end %>
+
+<br />
+<%= link_to 'New Product', new_product_path %>
