@@ -4,7 +4,10 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+<<<<<<< HEAD
   
+=======
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -37,6 +40,7 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+<<<<<<< HEAD
 
   # Don't actually send emails
   config.action_mailer.delivery_method = :test
@@ -59,4 +63,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+=======
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
 end

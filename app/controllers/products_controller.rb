@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
+<<<<<<< HEAD
   include CurrentCart
   skip_before_action :authorize, only: :show
   before_action :set_cart
+=======
+  before_action :authorize, only: [:new, :create, :edit, :update, :destroy]
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
   before_action :set_product, only: [:edit, :update, :destroy]
 
   # GET /products
@@ -66,6 +70,7 @@ class ProductsController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   def who_bought
     @product = Product.find(params[:id])
     @latest_order = @product.orders.order(:updated_at).last
@@ -76,6 +81,8 @@ class ProductsController < ApplicationController
     end
   end
 
+=======
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

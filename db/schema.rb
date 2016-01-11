@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160105100121) do
 
   create_table "carts", force: :cascade do |t|
@@ -41,6 +42,9 @@ ActiveRecord::Schema.define(version: 20160105100121) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20151126103542) do
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
 
   create_table "partners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -55,7 +59,10 @@ ActiveRecord::Schema.define(version: 20160105100121) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+<<<<<<< HEAD
     t.string   "username"
+=======
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
   end
 
   add_index "partners", ["email"], name: "index_partners_on_email", unique: true
@@ -84,7 +91,10 @@ ActiveRecord::Schema.define(version: 20160105100121) do
     t.datetime "updated_at",       null: false
     t.integer  "partner_id"
     t.string   "brand_bio"
+<<<<<<< HEAD
     t.string   "brand_name"
+=======
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
   end
 
   add_index "stores", ["partner_id"], name: "index_stores_on_partner_id"

@@ -1,11 +1,15 @@
 class Product < ActiveRecord::Base
+<<<<<<< HEAD
   has_many :line_items
   has_many :orders, through: :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
+=======
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
   belongs_to :store
   mount_uploader :image, ImageUploader
 
   validates :store, presence: true
+<<<<<<< HEAD
   validate :product_count_within_limit, :on => :create
 
   def product_count_within_limit
@@ -25,4 +29,6 @@ class Product < ActiveRecord::Base
   		return false
   	end
   end
+=======
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
 end

@@ -2,4 +2,20 @@
 img {
 	height: 100px;
 	width: 50px;
+<<<<<<< HEAD
+=======
+}
+
+.empty-btn {
+	background: #000;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 100px;
+}
+
+.empty-btn a {
+text-decoration: none;
+font-color: #fff;
+text-decoration: none;
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
 }

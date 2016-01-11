@@ -5,12 +5,17 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
+<<<<<<< HEAD
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,700' rel='stylesheet' type='text/css'>
+=======
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css'>
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+<<<<<<< HEAD
   <body class="<%= controller.controller_name %>">
 
     
@@ -23,6 +28,16 @@
 
       <%= link_to 'Profile', custom_user_path(current_partner.username), :class => 'navbar-link' %> |
       <%= link_to 'Edit profile', custom_edit_user_path(current_partner.username), :class => 'navbar-link' %> |
+=======
+  <body>
+
+    <p class="navbar-text pull-right">
+    <% if partner_signed_in? %>
+
+      Logged in as <strong><%= current_partner.email %></strong>.
+      <%= link_to 'Profile', profile_path, :class => 'navbar-link' %> |
+      <%= link_to 'Edit profile', edit_partner_registration_path, :class => 'navbar-link' %> |
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
       <%= link_to "Logout", destroy_partner_session_path, method: :delete, :class => 'navbar-link'  %>
 
     <% else %>
@@ -31,15 +46,23 @@
       <%= link_to "Login", new_partner_session_path, :class => 'navbar-link'  %>
 
     <% end %>
+<<<<<<< HEAD
     </div>
 
        <% if notice %>
+=======
+
+    </p>
+
+    <% if notice %>
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
+<<<<<<< HEAD
 <div id="page-content-wrapper">
   <div class="container-fluid">
     <div class="row">
@@ -50,6 +73,8 @@
   </div>
 </div>
 
+=======
+>>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
     <%= yield %>
 
   </body>
