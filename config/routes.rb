@@ -1,21 +1,26 @@
 Rails.application.routes.draw do
 
-devise_scope :partner do
-  root 'devise/sessions#new'
+  
+  root 'temp_home#show'
+
+  resources :orders
+  resources :line_items
+  resources :carts
+  devise_scope :partner do
   devise_for :partners, except: [:show, :edit]
 end
+
 
   devise_scope :partner do
   get '/:username' => 'profile#show', as: 'custom_user'
   get '/:username/edit' => 'devise/registrations#edit', as: 'custom_edit_user'
-
 end
 
-  get '/cart/clear' => 'cart#clearCart'
-  get '/cart/:id' => 'cart#add'
-  get 'cart' => 'cart#index'
 
-  resources :products
+  resources :products do
+    get :who_bought, on: :member
+  end
+  
   get 'pages/about'
 
   get 'pages/faq'

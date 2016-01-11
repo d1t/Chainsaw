@@ -1,0 +1,20 @@
+
+ <% [@partners].each do |partner| %>
+	<%= image_tag partner.store.image_url(:avatar).to_s, class: 'img-circle' %> 
+	<div class="info">
+		<h4>@<%= partner.username %></h4>
+		<h5><%= partner.store.brand_bio %></h5>
+		<strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers
+	</div>
+<% end %>
+
+	<div class="well" style="max-width:900px; margin-left:auto;margin-right:auto;margin-top:40px;">
+	<% @partners.products.in_groups_of(3, false).each do |group| %>
+	  <div class="row">
+	    <% for product in group %>
+	      <%= render product %>
+	    <% end %>
+	     </div>
+
+	<% end %>
+</div>

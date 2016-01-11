@@ -19,3 +19,6 @@
 .*.s[a-w][a-z]
 
 public/uploads/**/*
+
+# Ignore environment file
+/config/local_env.yml

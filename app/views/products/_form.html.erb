@@ -1,3 +1,5 @@
+<div class="panel panel-default" style="margin-right:auto; margin-left:auto; max-width: 400px;">
+
 <%= form_for(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +12,10 @@
       </ul>
     </div>
   <% end %>
-
+<div class="panel-heading">
+  <h1 class="panel-title">New Product</h1>
+</div>
+<div class="panel-body">
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -37,9 +42,12 @@
   </div>
   <div class="field">
     <%= f.label :price %><br>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, placeholder: '£ xx.xx' %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
+
+</div>

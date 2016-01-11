@@ -1,0 +1,10 @@
+<h1><%= @partner.store.brand_name %> Order Shipped</h1>
+
+<p>
+  This is just to let you know that your recent order has been shipped:
+</p>
+
+<table>
+	<tr><th colspan="2">Qty</th><th>Description</th></tr>
+	<%= render @order.line_items -%>
+</table>

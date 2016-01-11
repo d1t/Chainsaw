@@ -11,16 +11,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="<%= controller.controller_name %>">
 
-    <p class="navbar-text pull-right">
+    
+    <div class="navbar-text pull-right">
+    
     <% if partner_signed_in? %>
 
-      Logged in as <strong><%= current_partner.store.brand_name %></strong>
+      Logged in as <strong><%= link_to current_partner.username %></strong> |
     
 
-      <%= link_to 'Profile', custom_user_path, :class => 'navbar-link' %> |
-      <%= link_to 'Edit profile', custom_edit_user_path, :class => 'navbar-link' %> |
+      <%= link_to 'Profile', custom_user_path(current_partner.username), :class => 'navbar-link' %> |
+      <%= link_to 'Edit profile', custom_edit_user_path(current_partner.username), :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_partner_session_path, method: :delete, :class => 'navbar-link'  %>
 
     <% else %>
@@ -29,15 +31,24 @@
       <%= link_to "Login", new_partner_session_path, :class => 'navbar-link'  %>
 
     <% end %>
+    </div>
 
-    </p>
-
-    <% if notice %>
+       <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+
+
+
+    </div>
+  </div>
+</div>
 
     <%= yield %>
 
