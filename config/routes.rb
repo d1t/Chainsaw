@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
   
+  get 'dashboard/show'
+
   root 'temp_home#show'
 
   resources :orders
@@ -22,19 +23,9 @@ end
     get :who_bought, on: :member
   end
   
-=======
 
-  root 'products#index'
-  devise_for :partners
-
-  get '/profile' => 'profile#show'
-
-  get '/cart/clear' => 'cart#clearCart'
-  get '/cart/:id' => 'cart#add'
-  get 'cart' => 'cart#index'
 
   resources :products
->>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
   get 'pages/about'
 
   get 'pages/faq'

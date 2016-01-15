@@ -1,6 +1,7 @@
 class Store < ActiveRecord::Base
   has_many :products
   belongs_to :partner
+  has_and_belongs_to_many :orders
   mount_uploader :image, ImageUploader
 
   validates :brand_bio, length: { maximum: 140 }

@@ -11,6 +11,9 @@
 
   <tbody>
     <% @orders.each do |order| %>
+   <th><%= order.name %></th>
+   <th><%= order.email %></th>
+   <th><%= order.address %></th>
       <tr>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>

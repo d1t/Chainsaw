@@ -20,7 +20,6 @@ module Mix
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-<<<<<<< HEAD
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
@@ -31,8 +30,7 @@ module Mix
   end if File.exists?(env_file)
 end
 
-=======
->>>>>>> 635a7b70783a009bb6b645f8455131233d3b78ff
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end

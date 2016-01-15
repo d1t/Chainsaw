@@ -1,7 +1,7 @@
 class SignupNotifier < Devise::Mailer
 	helper :application
 	include Devise::Controllers::UrlHelpers
-	default template_path: 'devise/mailer'
+	default template_path: 'signup_notifier'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
