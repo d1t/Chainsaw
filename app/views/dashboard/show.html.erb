@@ -3,27 +3,33 @@
 
 <% if partner_signed_in? %>
 
-<%= image_tag(current_partner.store.image_url(:avatar).to_s, class: 'img-circle') if current_partner.store.image? %>
+		<%= image_tag(current_partner.store.image_url(:avatar).to_s, class: 'img-circle') if current_partner.store.image? %>
 
-<div class="bio">
-	<h3><%= current_partner.store.brand_name %></h3>
-	<h5>@<%= current_partner.username %></h5>
-	<h5><%= current_partner.store.brand_bio %></h5>
-	<h5><strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers</h5>
+		<div class="bio">
+			<h3><%= current_partner.store.brand_name %></h3>
+			<h5>@<%= current_partner.username %></h5>
+			<h5><%= current_partner.store.brand_bio %></h5>
+			<h5><strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers</h5>
+		</div>
+
+		<strong><%= Time.now.strftime("%d %b %Y") %></strong>
+
+				
+				<h2 class="text-center">Orders</h2>
+				
+				<% current_partner.orders.where(:order => @order.line_items).each do |order| %>
+					
+					<%= order.name %>
+					<%= order.email %>
+
+				<% end %>
+
+
+				
+<% else %>
+
+<%= redirect_to root %>
+
+
 </div>
-
-<strong><%= Time.now.strftime("%d %b %Y") %></strong>
-
-
-
-		<% current_partner.store.orders.each do |order| %>
-
-		<%= order.line_items.title  %>
-
-		
-		<% end %>
-	<% end %>
-
-
-
-</div>
+<% end %>
