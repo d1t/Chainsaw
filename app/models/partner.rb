@@ -27,18 +27,18 @@ class Partner < ActiveRecord::Base
   #signup_notifier mailer
   after_create { SignupNotifier.confirmation_mail(self).deliver }
 
-#  def send_confirmation_mail
-#    SignupNotifier.confirmation(self).deliver
-#  end
+  #  def send_confirmation_mail
+  #    SignupNotifier.confirmation(self).deliver
+  #  end
   
-def to_param
-  username
-end
-
-
-private
-
-  def add_store
-    self.build_store unless store
+  def to_param
+    username
   end
+
+
+  private
+
+    def add_store
+      self.build_store unless store
+    end
 end

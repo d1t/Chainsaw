@@ -1,15 +1,12 @@
 <div class="well" style="margin-right:auto;margin-left:auto; max-width:200px;">
-<h1>Partners</h1>
-
-<% @partners.each do |partner| %> 
-
-<ul>
-
-<li><%= link_to partner.username do %> 
-	<%= partner.username %></li>
-	<% end %>
-
-</ul>
- <% end %>
-
+  <h1>Partners</h1>
+  <ul>
+    <% @partners.each do |partner| %>
+      <li>
+        <%= link_to partner.username do %> 
+      	 <%= partner.username %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>

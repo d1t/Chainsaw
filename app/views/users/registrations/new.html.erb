@@ -5,10 +5,17 @@
   <div class="sign_up panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
+      
+      <div class="field">
+        <%= f.label :role %><br />
+        <%= f.radio_button :role, 'customer', checked: true %> Customer
+        <%= f.radio_button :role, 'partner' %> Partner
+      </div>
+
       <div class="field">
         <%= f.label :username %><br />
         <%= f.text_field :username, autofocus: true %>
-      </div>  
+      </div>
 
       <div class="field">
         <%= f.label :email %><br />
