@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   validates :store, presence: true
+  validates :delivery_price, presence: true
 
   validate :product_count_within_limit, :on => :create
 
