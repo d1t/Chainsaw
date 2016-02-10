@@ -9,10 +9,12 @@ class User < ActiveRecord::Base
   has_one :store #need to create a relation to store
   has_many :products, through: :store
   has_many :orders, through: :store
+  has_many :cards, dependent: :destroy
 
   after_create :default_store
 
   accepts_nested_attributes_for :store
+  accepts_nested_attributes_for :cards
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :role, presence: true
@@ -24,10 +26,22 @@ class User < ActiveRecord::Base
     username
   end
 
+  def customer?
+    role == 'customer'
+  end
+
+  def partner?
+    role == 'partner'
+  end
+
+  def admin?
+    role == 'admin'
+  end
+
   private
 
     def default_store
-      self.create_store
+      self.create_store if partner?
     end
 
 end

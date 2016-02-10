@@ -70,8 +70,19 @@
         </div>
 
       <% end %>
+      <br/>
+      <h4>Your cards:</h4>
+      <% current_user.cards.each do |card| %>
+        <div>
+          <span><%= card.number %> - </span>
+          <span><%= card.expire_year %>/<%= card.expire_month %> - </span>
+          <span><%= link_to 'Delete', card_path(card), method: :delete %></span>
+        </div>
+      <% end %>
+      <br/>
+      <%= link_to 'Add Credit Card', new_card_path %>
+
     </div>
-     
   <% end %>
 </div>
 <br><br>

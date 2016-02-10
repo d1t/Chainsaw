@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.store %>
 	<%= image_tag(current_user.store.image_url(:avatar).to_s, class: 'img-circle') if current_user.store.image? %>
 	<div class="bio">
 		<h3><%= current_user.store.brand_name %></h3>

@@ -1,0 +1,36 @@
+<div class="panel panel-default" style="max-width:600px; max-height:auto; margin-left:auto;margin-right:auto;">
+  <div class="panel-heading">
+    <h2 class="panel-title text-center">Add Credit Card</h2>
+  </div>
+
+  <div class="panel-body edit-form">
+    <%= form_for @card do |f| %>
+      <% if @card.errors.any? %>
+        <ul>
+          <% @card.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <div class="field">
+        <%= f.label :number %><br />
+        <%= f.text_field :number, placeholder: '4242424242424242' %>
+      </div>
+      <div class="field">
+        <%= f.label :expire_year %><br />
+        <%= f.text_field :expire_year, placeholder: '2020' %>
+      </div>
+      <div class="field">
+        <%= f.label :expire_month %><br />
+        <%= f.text_field :expire_month, placeholder: '12' %>
+      </div>
+      <div class="field">
+        <%= f.label :cvv2, 'CVV' %><br />
+        <%= f.text_field :cvv2, placeholder: '123' %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Add" %>
+      </div>
+    <% end %>
+  </div>
+</div>

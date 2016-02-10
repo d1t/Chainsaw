@@ -65,4 +65,13 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test  # :production when you will use a real Pro Account
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+        login: "business_api1.upwave.net",
+        password: "NSCHQHELVVBFWZ4X",
+        signature: "Aj5WIkkY-E56IMf5ZXRtGSYSLqjcAuXQhphz5opqzhKSswFD0549YgiJ"
+    )
+  end
+
 end
