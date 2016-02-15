@@ -3,9 +3,7 @@
   <ul>
     <% @partners.each do |partner| %>
       <li>
-        <%= link_to partner.username do %> 
-      	 <%= partner.username %>
-        <% end %>
+        <%= link_to partner.username, profile_path(partner.username) %>
       </li>
     <% end %>
   </ul>

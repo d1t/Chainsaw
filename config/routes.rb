@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :create, :destroy]
 
   get 'dashboard/show'
-  root 'temp_home#show'
 
   resources :orders
   resources :line_items
@@ -17,5 +16,12 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/faq'
   get 'pages/blog'
+
+  namespace :customer do
+    resources :partners, only: [:index, :show]
+    resource :cart, only: [:show]
+  end
+
+  root 'customer/partners#index'
 
 end

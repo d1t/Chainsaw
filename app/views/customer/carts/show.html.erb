@@ -1,0 +1,26 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="panel panel-default" style="max-width:500px; margin-right:auto; margin-left:auto;">
+  <div class="panel-heading">
+    <h2 class="panel-title">Your Cart</h2>
+  </div>
+
+  <table>
+    <%=  render partial: "line_items/line_item", collection: @cart.line_items %>
+    <tr class="total_line">
+      <td colspan="2">Total</td>
+      <td class="total_cell"><%= number_to_currency(@cart.total_price, unit: '£') %></td>
+    </tr>
+  </table>
+
+  <br><br>
+  <%= link_to 'Continue shopping', root_url, class: 'btn btn-default' %>
+  <br><br>
+  <div class="action">
+    <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default empty_cart' %><br>
+    <%= button_to "Checkout", new_order_path, method: :get, class: 'btn' %>
+  </div>
+  <br>
+</div>

@@ -1,15 +1,15 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:username]
   enum role: %i[ customer partner admin ]
 
-  has_one :store #need to create a relation to store
+  has_one :store, dependent: :destroy #need to create a relation to store
   has_many :products, through: :store
   has_many :orders, through: :store
   has_many :cards, dependent: :destroy
+  has_many :payments
+  has_one :cart
 
   after_create :default_store
 
@@ -36,6 +36,18 @@ class User < ActiveRecord::Base
 
   def admin?
     role == 'admin'
+  end
+
+  def add_products_from_session cart_id
+    session_cart = Cart.find cart_id if cart_id
+    if cart && session_cart
+      session_cart.line_items.each{ |li| self.cart.line_items << li }
+      session_cart.reload
+      session_cart.destroy
+      session[:cart_id] = nil
+    elsif session_cart
+      self.cart = session_cart
+    end
   end
 
   private

@@ -2,7 +2,7 @@
   <div><%= image_tag product.image_url(:index).to_s, class: 'product' %></div>
   <div><%= number_to_currency(product.price, unit: '£') %></div>
   <div>
-    <% if partner_signed_in? %>
+    <% if user_signed_in? %>
       <%= link_to 'Show', product %>
       <%= link_to 'Edit', edit_product_path(product) %>
       <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
