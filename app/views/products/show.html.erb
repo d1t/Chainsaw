@@ -1,31 +1,32 @@
-
-
-<% print %>
- 
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="exampleModalLabel">Product Details</h4>
+</div>
+<div class="modal-body">
   <%= image_tag @product.image_url(:large).to_s %>
- <p><strong><%= @product.title %></strong></p>
- <p><%= @product.description %></p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @product.category %>
-</p>
-
-<p>
-  <strong>Subcategory:</strong>
-  <%= @product.subcategory %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  £<%= @product.price %>
-</p>
-
-<%= link_to 'New Product', new_product_path %> |
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <p><strong><%= @product.title %></strong></p>
+  <p><%= @product.description %></p>
+  <p>
+    <strong>Quantity:</strong>
+    <%= @product.quantity %>
+  </p>
+  <p>
+    <strong>Category:</strong>
+    <%= @product.category %>
+  </p>
+  <p>
+    <strong>Subcategory:</strong>
+    <%= @product.subcategory %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    £<%= @product.price %>
+  </p>
+  <p>
+    <strong>Delivery Price:</strong>
+    £<%= @product.delivery_price %>
+  </p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

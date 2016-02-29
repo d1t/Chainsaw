@@ -1,7 +1,14 @@
 development: &default
   mode: sandbox
-  client_id: ASC8-X97SdbgwL4AYhipmAXeGyBAYFJ_dVogK9ZnjQI2QJtuWV8mgsGLq6Wepvv3HLsR-JgYgHhUSK2Z
-  client_secret: EBG5RMddUIjsxCHFr1ZdBASzS0lt3fS5_IsgB30TRwsZ79-BisqNQYPXE-cmdgkKt7nzATZqjNGrP63B
+  client_id: AT7apDg2RDt_r5g6KeMsgYxLcjXoiTN6SAU1YPx6TgWxmhkVfz3opiRjXjlR5ZGpsKUJIqS3DFqYBwlL
+  client_secret: EOZTW2xfhARcVNaCL4zaf-LHHTYf1ybRNmFspjyWA7T27trOswfhTtiHboKJPmlqfCq2nOPIQNLEopBf
+  app_id: APP-80W284485P519543T
+  username: jigachok_api1.gmail.com
+  password: 8W4FJVMXGE83926K
+  signature: AalxF-vd0O7KSFTlrdeo2XqkZsJHADS4CyU-BEAYOmxK0uRbbKRKfysI
+  # # With Certificate
+  # cert_path: "config/cert_key.pem"
+  sandbox_email_address: jigachok_api1.gmail.com
   # # with Proxy
   # http_proxy: http://proxy-ipaddress:3129/
   # # with CA File

@@ -18,7 +18,7 @@ class Card < ActiveRecord::Base
       external_customer_id: generate_external_customer_id
     )
     if c.create
-      assign_attributes( credit_card_id: c.id, external_customer_id: external_customer_id, number: c.number)
+      assign_attributes( credit_card_id: c.id, external_customer_id: c.external_customer_id, number: c.number)
       save
     end
   end

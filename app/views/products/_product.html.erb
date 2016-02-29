@@ -1,5 +1,9 @@
 <div class="col-md-4" style: "center-block">
-  <div><%= image_tag product.image_url(:index).to_s, class: 'product' %></div>
+  <div>
+    <%= link_to product_path(product), data: { target: '#modal', toggle: 'modal' } do %>
+      <%= image_tag product.image_url(:index).to_s, class: 'product' %>
+    <% end %>
+  </div>
   <div><%= number_to_currency(product.price, unit: '£') %></div>
   <div>
     <% if user_signed_in? %>
