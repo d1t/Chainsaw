@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable, :validatable, :invitable,
          :authentication_keys => [:username]
   enum role: %i[ customer partner admin ]
 
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :payments
   has_one :cart
 
-  after_create :default_store
+  after_create :default_store, :set_partner_role
 
   accepts_nested_attributes_for :store
   accepts_nested_attributes_for :cards
@@ -44,7 +44,6 @@ class User < ActiveRecord::Base
       session_cart.line_items.each{ |li| self.cart.line_items << li }
       session_cart.reload
       session_cart.destroy
-      session[:cart_id] = nil
     elsif session_cart
       self.cart = session_cart
     end
@@ -54,6 +53,13 @@ class User < ActiveRecord::Base
 
     def default_store
       self.create_store if partner?
+    end
+
+    def set_partner_role
+      self.role = 'partner' if invitation_created_at
+      p '~'*90
+      p self.role
+      save(validate: false)
     end
 
 end
