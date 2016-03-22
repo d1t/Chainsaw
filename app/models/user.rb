@@ -56,9 +56,10 @@ class User < ActiveRecord::Base
     end
 
     def set_partner_role
-      self.role = 'partner' if invitation_created_at
-      p '~'*90
-      p self.role
+      if invitation_created_at
+        self.role = 'partner'
+        self.username = email.split('@').first
+      end
       save(validate: false)
     end
 
