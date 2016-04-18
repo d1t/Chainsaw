@@ -1,0 +1,30 @@
+ 
+
+
+var main = function() {
+	$('.product').hover(function() {
+		$(this).hide(1)
+	});
+	
+	$('.current').mouseleave(function() {
+		$('.product').show(1);
+	}); 
+};
+
+$(document).ready(main);
+
+
+ //	$('#product').modal()                       // initialized with defaults
+ // $('#product').modal('show')                // initializes and invokes show 
+// $('img a' ).click(function (e) {
+//	$('#product img').attr('src', $(this).attr('data-img-url'));
+//});
+
+// $(document).ready(function () {
+// $('#product').on('show.bs.modal', function (e) {
+// var image = $(e.relatedTarget).attr('src');
+//  $(".img-responsive").attr("src", image);
+//        });
+//});
+
+

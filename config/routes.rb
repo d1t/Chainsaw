@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  get 'profile/:username' => 'profile#show', as: :profile
+  get '/:username' => 'profile#show', as: :profile
   resources :cards, only: [:new, :create, :destroy]
 
   get 'dashboard/show'
@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/faq'
   get 'pages/blog'
+  get '/products/checkout'
+
+
 
   namespace :customer do
     resources :partners, only: [:index, :show]

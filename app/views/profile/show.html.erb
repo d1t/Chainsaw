@@ -1,13 +1,12 @@
 <% if user_signed_in? && current_user.store %>
-	<%= image_tag(current_user.store.image_url(:avatar).to_s, class: 'img-circle') if current_user.store.image? %>
+	<%= image_tag(@partner.image_url(:avatar).to_s, class: 'img-circle') if @partner.image? %>
 	<div class="bio">
-		<h3><%= current_user.store.brand_name %></h3>
-		<h5>@<%= current_user.username %></h5>
-		<h5><%= current_user.store.brand_bio %></h5>
-		<h5><strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers</h5>
+		<h3><%= @partner.name %></h3>
+		<h5>@<%= @partner.username %></h5>
+		<h5><%= simple_format(@partner.bio) %></h5>
 	</div>
 	<div class="well" style="max-width:900px; margin-left:auto;margin-right:auto;margin-top:40px;">
-		<% current_user.products.in_groups_of(3, false).each do |group| %>
+		<% @products.in_groups_of(3, false).each do |group| %>
 		  <div class="row">
 		    <% for product in group %>
 		      <%= render product %>
@@ -16,7 +15,9 @@
 		<% end %>
 	</div>
 	<br />
-	<%= link_to 'New Product', new_product_path %>
+	<div class="text-center">
+		<%= link_to 'New Product', new_product_path, class: 'btn' %>
+	</div>
 <% else %>
 	<%= render 'profile' %>
 <% end %>
@@ -28,3 +29,6 @@
     </div>
   </div>
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="application.js"></script>

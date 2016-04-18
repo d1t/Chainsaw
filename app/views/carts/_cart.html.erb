@@ -1,16 +1,13 @@
-<div class="panel panel-default" style="max-width:500px; margin-right:auto; margin-left:auto;">
+<div class="panel panel-default" style="max-width:1000px; margin-right:auto; margin-left:auto;">
 <div class="panel-heading">
 <h2 class="panel-title">Your Cart</h2>
 </div>
-
-<table>
 	<%= render(@cart.line_items) %>
 
-<tr class="total_line">
-	<td colspan="2">Total</td>
-	<td class="total_cell"><%= number_to_currency(@cart.total_price, unit: '£') %></td>
-</tr>
-</table>
+<ul class="total_line">
+	<li class="label">Total</li>
+	<li class="total_cell"><%= number_to_currency(@cart.total_price, unit: '£') %></li>
+</ul>
 
 <br><br>
 <%= link_to 'Continue shopping', root_url, class: 'btn btn-default' %>

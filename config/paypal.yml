@@ -1,14 +1,14 @@
 development: &default
   mode: sandbox
-  client_id: AT7apDg2RDt_r5g6KeMsgYxLcjXoiTN6SAU1YPx6TgWxmhkVfz3opiRjXjlR5ZGpsKUJIqS3DFqYBwlL
-  client_secret: EOZTW2xfhARcVNaCL4zaf-LHHTYf1ybRNmFspjyWA7T27trOswfhTtiHboKJPmlqfCq2nOPIQNLEopBf
+  client_id: ARj50gjdzXtxfeUoR6XEEaOFET8tEEYSxB62R3pomIH5JhSddK8Iz6QHKA-q3CvkzfLHqZ20btC3oMN8
+  client_secret: EJP4hPizDCBEF4LysSZjQ54vJyDH1Lzhsm7jfOxduWaCusfZGcyw5B193nDS0mE6XCiFVF68P2DN7ubd
   app_id: APP-80W284485P519543T
-  username: jigachok_api1.gmail.com
-  password: 8W4FJVMXGE83926K
-  signature: AalxF-vd0O7KSFTlrdeo2XqkZsJHADS4CyU-BEAYOmxK0uRbbKRKfysI
+  username: info_api1.cubey.co
+  password: V7PM5PTEDJ7TZVF9
+  signature: AFcWxV21C7fd0v3bYYYRCpSSRl31ACq0covWSfI1YdpsZXkHkKtqRyut
   # # With Certificate
   # cert_path: "config/cert_key.pem"
-  sandbox_email_address: jigachok_api1.gmail.com
+  sandbox_email_address: info-facilitator@cubey.co
   # # with Proxy
   # http_proxy: http://proxy-ipaddress:3129/
   # # with CA File

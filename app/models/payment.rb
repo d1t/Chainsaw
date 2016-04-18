@@ -7,19 +7,19 @@ class Payment < ActiveRecord::Base
     @pay = @api.build_pay({
       :actionType => "PAY", #PAY
       :cancelUrl => "http://localhost:3000/samples/adaptive_payments/pay",
-      :currencyCode => "USD",
+      :currencyCode => "GBP",
       :feesPayer => "PRIMARYRECEIVER",
       :ipnNotificationUrl => "http://localhost:3000/samples/adaptive_payments/ipn_notify",
       :receiverList => {
         :receiver => [
           {
             :amount => 2.0,
-            :email => "jigachok-facilitator@gmail.com",
+            :email => "info-facilitator@cubey.co",
             :primary => true
           },
           {
             :amount => 1.0,
-            :email => "some2@business.business",
+            :email => "info-buyer-1@cubey.co",
           }
           ] },
       :returnUrl => "http://localhost:3000/samples/adaptive_payments/pay",

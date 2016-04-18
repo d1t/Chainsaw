@@ -1,0 +1,32 @@
+.panel-heading {
+	margin-top: 0px;
+}
+
+.panel-body {
+	margin-top: 100px;
+}
+
+.field input {
+	width: 240px;
+	line-height: 2;
+}
+
+.field input:focus {
+	outline: none;
+	border: none;
+	-webkit-transition: border-bottom-color 2s;
+	transition: border-bottom-color 2s;
+	transition-timing-function: linear;
+	border-bottom: 3px solid #20ce99;
+	
+}
+
+.reg {
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.remember label {
+	margin-left: -200px;
+	
+}

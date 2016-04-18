@@ -6,17 +6,21 @@ img.img-circle {
 
 
 img.img-circle {
-	margin-top: 20px;
-	margin-left: 40px;
+	margin-top: -60px;
+	margin-left: 60px;
+}
+
+.bio, .info {
+	padding-left: 30px;
 }
 
  .bio h5 {
-	padding-left: 80px;
+	padding-left: 100px;
 	font-family: 'Roboto', sans-serif;
 }
 
 .bio h3 {
-	padding-left: 80px;
+	padding-left: 100px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 }
@@ -34,6 +38,6 @@ img.img-circle {
 }
 
 .info {
-	margin-left: 30px;
+	margin-left: 50px;
 	padding-top: 10px;
 }

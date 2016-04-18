@@ -4,7 +4,7 @@
 <tr>
 	<% end %>
 	<td class="image"><%= image_tag line_item.product.image_url(:thumb).to_s %></td>&nbsp;
-	<td>&nbsp; &nbsp;<%= line_item.quantity %> &times;</td>
-	<td><%= line_item.product.title %></td>
+	<td class="itemqty">&nbsp; &nbsp;<%= line_item.quantity %> &times;</td>
+	<td class="itemtitle"><%= line_item.product.title %></td>&nbsp; &nbsp;
 	<td class="item_price"><%= number_to_currency(line_item.total_price, unit: '£') %></td>
 </tr>

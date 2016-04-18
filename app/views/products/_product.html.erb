@@ -1,14 +1,18 @@
 <div class="col-md-4" style: "center-block">
-  <div>
+  <div class="products" style="position: relative;">
     <%= link_to product_path(product), data: { target: '#modal', toggle: 'modal' } do %>
+      <%= image_tag product.secimage_url(:index).to_s, class: 'current' %>
       <%= image_tag product.image_url(:index).to_s, class: 'product' %>
     <% end %>
   </div>
-  <div><%= number_to_currency(product.price, unit: '£') %></div>
   <div>
-    <% if user_signed_in? %>
-      <%= link_to 'Show', product %>
-      <%= link_to 'Edit', edit_product_path(product) %>
+   <span class="rrp"><%= number_to_currency(product.rrp, unit: '£') %></span> |
+   <%= number_to_currency(product.price, unit: '£') %>
+  </div>
+  <div>
+    <% if user_signed_in? && current_user.store %>
+      <%= link_to 'Show', product %> |
+      <%= link_to 'Edit', edit_product_path(product) %> |
       <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% else %>
       <%= button_to 'Add to Cart', line_items_path(product_id: product) %>

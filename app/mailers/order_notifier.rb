@@ -1,5 +1,5 @@
 class OrderNotifier < ActionMailer::Base
-  default from: 'Cubey <info@cubeyapp.co>'
+  default from: 'Cubey <info@cubey.co>'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -10,6 +10,7 @@ class OrderNotifier < ActionMailer::Base
     @order = order
     
     mail to: order.email, subject: '<%= @partner.store.brand_name %> Order Confirmation'
+ 
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

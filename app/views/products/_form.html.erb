@@ -34,16 +34,34 @@
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.select :category, Product::CATEGORY, prompt: 'Please select' %>
   </div>
   <div class="field">
     <%= f.label :subcategory %><br>
-    <%= f.text_field :subcategory %>
+    <%= f.select :subcategory, Product::SUB_CATEGORY, prompt: 'Please select' %>
   </div>
+
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.select :size, Product::SIZE_OPTIONS, prompt: 'Please select', { multiple: true, include_hidden: false } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.select :color, Product::COLOR_OPTIONS, prompt: 'Please select', { multiple: true, include_hidden: false } %>
+  </div>
+
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
+    <%= f.file_field :secimage %>
   </div>
+
+  <div class="field">
+    <%= f.label :rrp %><br>
+    <%= f.number_field :rrp, placeholder: '£ xx' %>
+  </div>
+
   <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price, placeholder: '£ xx' %>

@@ -1,0 +1,40 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title" id="exampleModalLabel">Product details</h4>
+</div>
+<div class="modal-body">
+	 
+	<%= image_tag @product.image_url(:large).to_s %> <br>
+
+  	<p><strong><%= @product.title %></strong></p>
+  	<p><%= simple_format(@product.description) %></p>
+
+
+	 <p>
+    <strong>Price:</strong>
+    £<%= @product.price %>
+  </p>
+
+  <p>
+    <strong>Quantity:</strong>
+    <%= f.select Product::QTY %>
+  </p>
+
+  <p>
+    <strong>Size:</strong>
+    <%= f.select Product::SIZE_OPTIONS %>
+  </p>
+  <p>
+    <strong>Color:</strong>
+    <%= f.select Product::COLOR_OPTIONS %>
+  </p>
+
+  <p>
+    <strong></strong>
+  </p>
+</div>
+<div class="modal-footer">
+	<div class="modal-footer">
+  	<button type="button" class="btn btn-default" data-dismiss="modal">Checkout</button>
+	</div>
+</div>

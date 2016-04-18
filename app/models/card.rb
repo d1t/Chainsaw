@@ -4,6 +4,7 @@ class Card < ActiveRecord::Base
 
   validates :expire_year, :expire_month, :cvv2, :number, presence: true
 
+
   def generate_external_customer_id
     "user-#{user.id}-#{Time.now.to_i}"
   end

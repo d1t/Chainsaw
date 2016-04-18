@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
   enum role: %i[ customer partner admin ]
 
+  mount_uploader :image, ImageUploader
   has_one :store, dependent: :destroy #need to create a relation to store
   has_many :products, through: :store
   has_many :orders, through: :store
@@ -21,6 +22,10 @@ class User < ActiveRecord::Base
 
   # this should be send by devise automatically, need to check that
   # after_create { SignupNotifier.confirmation_mail(self).deliver }
+
+  def fullname
+  "#{first_name} #{last_name}"
+  end
 
   def to_param
     username

@@ -1,10 +1,10 @@
-<div class="well" style="margin-right:auto;margin-left:auto; max-width:200px;">
-  <h1>Partners</h1>
-  <ul>
+<div class="well" style="margin-right:auto;margin-left:auto; max-width:800px;">
+  <h1 class="text-center">Partners</h1>
     <% @partners.each do |partner| %>
-      <li>
-        <%= link_to partner.username, profile_path(partner.username) %>
-      </li>
+    	<div class="row index" style="display: inline-block;">
+    		<%= link_to profile_path(partner.username) do %>
+    		<%= image_tag partner.image_url(:avatar).to_s, class: 'img-rounded' %>
+    	</div>
+        <% end %>
     <% end %>
-  </ul>
 </div>

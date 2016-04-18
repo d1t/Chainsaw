@@ -1,8 +1,9 @@
-<%#= image_tag @partner.store.image_url(:avatar).to_s, class: 'img-circle' %> 
+<%= image_tag @partner.image_url(:avatar).to_s, class: 'img-circle' %> 
 <div class="info">
 	<h4>@<%= @partner.username %></h4>
-	<h5><%#= @partner.store.brand_bio %></h5>
-	<strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers
+	<h4><%= @partner.name %></h4>
+	<h5><%= simple_format(@partner.bio) %></h5>
+
 </div>
 
 <div class="well" style="max-width:900px; margin-left:auto;margin-right:auto;margin-top:40px;">
@@ -14,3 +15,6 @@
     </div>
 	<% end %>
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="application.js"></script>

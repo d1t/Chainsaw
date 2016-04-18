@@ -1,0 +1,14 @@
+.total_cell {
+	position: absolute;
+	right: 480px;
+}
+
+.label li {
+	position: relative;
+	left: 400px;
+}
+
+.total_line {
+	display: inline-flex;
+}
+

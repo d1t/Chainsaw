@@ -15,3 +15,23 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.nav {
+	display: inline;
+}
+
+.nav a:hover, .nav img:hover {
+	background: none;
+	opacity: 0.7;
+}
+
+.navbar-text {
+	margin-top: -100px;
+}
+
+.navbar-text a:hover {
+	color: #000;
+	opacity: 1.5;
+	text-decoration: none;
+}
