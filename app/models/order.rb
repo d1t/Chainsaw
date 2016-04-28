@@ -3,7 +3,8 @@ class Order < ActiveRecord::Base
 	has_many :line_items, dependent: :destroy
 	has_many :payments
 	has_and_belongs_to_many :stores
-	validates :name, :address, :email, presence: true
+	has_one :address
+	validates :name, :email, presence: true
 	validates :pay_type, inclusion: PAYMENT_TYPES
 
 
@@ -14,4 +15,8 @@ class Order < ActiveRecord::Base
 			line_items << item
 		end
 	end
+
+	 def self.user
+ 		@usr = @user.partner
+ 	end
 end

@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229164529) do
+ActiveRecord::Schema.define(version: 20160420142303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "line_one"
+    t.string   "line_two"
+    t.string   "town"
+    t.string   "county"
+    t.string   "postcode"
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "addresses", ["order_id"], name: "index_addresses_on_order_id", using: :btree
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "cards", force: :cascade do |t|
     t.string   "credit_card_id"
@@ -109,7 +124,11 @@ ActiveRecord::Schema.define(version: 20160229164529) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "store_id"
+    t.integer  "rrp"
+    t.string   "size"
+    t.string   "color"
     t.float    "delivery_price"
+    t.string   "secimage"
   end
 
   add_index "products", ["store_id"], name: "index_products_on_store_id", using: :btree
@@ -153,6 +172,9 @@ ActiveRecord::Schema.define(version: 20160229164529) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "image"
+    t.string   "bio"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

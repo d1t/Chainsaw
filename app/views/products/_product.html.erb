@@ -13,9 +13,15 @@
     <% if user_signed_in? && current_user.store %>
       <%= link_to 'Show', product %> |
       <%= link_to 'Edit', edit_product_path(product) %> |
-      <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Delete', { controller: :products, action: 'destroy', id: product }, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% else %>
-      <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+      <%= button_to 'Add to Cart', line_items_path(product_id: product), class: 'btn_cart' %>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+
+$(document).ready(main);
+
+</script>

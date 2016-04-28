@@ -1,17 +1,18 @@
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <h4 class="modal-title" id="exampleModalLabel">Product Details</h4>
-</div>
-<div class="modal-body">
-  
-  <%= image_tag @product.secimage_url(:large).to_s, class: 'lgcurrent jp' %>
-  <!-- <#a href="#" class=" arrow arrow-prev" ><img class="arrow prev" src="/images/arrow-prev.png"></a> -->
-  <%= image_tag @product.image_url(:large).to_s, class: 'lg active-slide jp' %>
-  <!-- <a href="#" class="arow arrow-next" ><img class="arrow next" src="/images/arrow-next.png"></a> -->
-  <p><strong><%= @product.title %></strong></p>
-  <p class="description"><%= simple_format(@product.description) %></p>
 
-</div>
-<div class="modal-footer">
-<!--<#%= link_to 'Add to Cart', line_items_path(product_id: product) %> -->
-</div>
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <h4 class="modal-title" id="exampleModalLabel">Product Details</h4>
+	</div>
+	<div class="modal-body">
+	  
+	  <%= image_tag @product.secimage_url(:large).to_s, class: 'lgcurrent jp' %>
+	  <!-- <#a href="#" class=" arrow arrow-prev" ><img class="arrow prev" src="/images/arrow-prev.png"></a> -->
+	  <%= image_tag @product.image_url(:large).to_s, class: 'lg active-slide jp' %>
+	  <!-- <a href="#" class="arow arrow-next" ><img class="arrow next" src="/images/arrow-next.png"></a> -->
+	  <p><strong><%= @product.title %></strong></p>
+	  <p class="description"><%= simple_format(@product.description) %></p>
+
+	</div>
+	<div class="modal-footer">
+	<!--<#%= link_to 'Add to Cart', line_items_path(product_id: product) %> -->
+	</div>

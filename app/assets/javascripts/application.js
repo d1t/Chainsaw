@@ -30,7 +30,7 @@ var main = function() {
 	}); 
 
 };
-
+ 
 
 //$(document).on("shown.bs.modal", function() {
 //	$('.lg').hover(function() {

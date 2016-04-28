@@ -47,6 +47,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :avatar do
     process :resize_to_fit => [150, 150]
   end
+
+  def default_url
+    "/assets/images/default_images/" + [version_name, "default.png"].compact.join('_')
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

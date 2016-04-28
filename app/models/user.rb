@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :products, through: :store
   has_many :orders, through: :store
   has_many :cards, dependent: :destroy
+  has_many :addresses, dependent: :destroy
   has_many :payments
   has_one :cart
 

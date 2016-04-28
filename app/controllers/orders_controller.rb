@@ -34,7 +34,8 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         
-        OrderNotifier.received(@order).deliver
+        OrderNotifier.received(@order).deliver_now
+        OrderNotifier.notify(@order).deliver_now
         format.html { redirect_to root_path, notice: 'Thank you for your Order.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -72,6 +73,8 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params[:order].permit(:name, :address, :email, :pay_type)
+      params[:order].permit(:name, :email, :pay_type,
+        address_attributes: [:line_one, :line_two, :town, :county, :postcode],
+        card_attributes: [:name, :number, :expire_month, :expire_year, :cvv, address: {}])
     end
 end

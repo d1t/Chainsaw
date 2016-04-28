@@ -1,0 +1,24 @@
+Dear <%= @partner.name %>,
+
+You have a new order on Cubey.
+
+The following was ordered:
+
+<%= render @order.line_items  %>
+
+by <%= @order.name %><br />
+
+Please make arrangements to ship to:
+
+<%= simple_format(@order.address) %>
+
+
+And let us know when its been shipped.
+
+You'll receive the payment in 15 days.
+
+
+Thanks as always!
+
+
+The Cubey Team.

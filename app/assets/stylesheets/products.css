@@ -39,6 +39,23 @@ a:focus {
 }
 
 /* Products view */
+
+.btn_cart {
+	background: #323232;
+	border-color: #323232;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-weight: 100;
+}
+
+.btn_cart:hover {
+	background: #323232;
+	border-color: #323232;
+	color: #fff;
+	opacity: 0.5;
+}
+
 .rrp {
 	color: red;
 	text-decoration: line-through;

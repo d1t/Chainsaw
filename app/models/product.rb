@@ -16,7 +16,9 @@ class Product < ActiveRecord::Base
   CATEGORY = ["Clothing","Accessories"]
   SUB_CATEGORY = ["Tops","Bottoms","Dresses","Jumpsuits","Shoes/Heels","Bags","Coats & Jackets","Jumpers/Knitwear","Scarves","Ties"]
   SIZE_OPTIONS = ["UK - 2","UK - 4","UK - 6","UK - 8","Extra Small","Small","Medium","Large"]
-  COLOR_OPTIONS = ["White","Black","Blue","Navy","Green","Yellow","Cream","Brown"]
+  COLOR_OPTIONS = ["White","Black","Blue","Navy","Green","Yellow","Cream","Brown"].select &:present?
+
+
 
   def product_count_within_limit
     if self.store.products(:reload).count >= 9

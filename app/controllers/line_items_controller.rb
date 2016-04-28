@@ -24,7 +24,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to customer_cart_path }
+        format.html { redirect_to @line_item.cart }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }

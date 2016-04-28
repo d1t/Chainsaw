@@ -49,9 +49,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to session[:previous_url], notice: 'Product was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -61,6 +62,8 @@ class ProductsController < ApplicationController
     @latest_order = @product.orders.order(:updated_at).last
     if stale?(@latest_order)
       respond_to do |format|
+        format.html
+        format.xml { render xml: @product.to_xml(include: :orders) }
         format.atom
       end
     end

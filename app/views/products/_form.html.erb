@@ -43,12 +43,12 @@
 
   <div class="field">
     <%= f.label :size %><br>
-    <%= f.select :size, Product::SIZE_OPTIONS, prompt: 'Please select', { multiple: true, include_hidden: false } %>
+    <%= f.select :size, Product::SIZE_OPTIONS, { prompt: 'Please select' }, { multiple: true, include_hidden: false } %>
   </div>
 
   <div class="field">
     <%= f.label :color %><br>
-    <%= f.select :color, Product::COLOR_OPTIONS, prompt: 'Please select', { multiple: true, include_hidden: false } %>
+    <%= f.select :color, Product::COLOR_OPTIONS, { prompt: 'Please select' }, { multiple: true, include_hidden: false } %>
   </div>
 
   <div class="field">

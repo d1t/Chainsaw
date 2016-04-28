@@ -35,3 +35,10 @@
 	opacity: 1.5;
 	text-decoration: none;
 }
+
+.notice {
+	width: 400px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}

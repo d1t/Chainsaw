@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mix</title>
+    <title>Cubey Beta</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
@@ -21,12 +21,19 @@
     <div class="navbar-text pull-right">
 
       <% if user_signed_in? %>
-        Logged in as <strong><%= link_to current_user.username %></strong> |
+        Hi <strong><%= link_to current_user.username %></strong>, |
         <%  if current_user.admin? %>
           <%= link_to 'Invite User', new_user_invitation_path, :class => 'navbar-link link' %> |
         <% end %>
+        
         <%= link_to 'Profile', profile_path(current_user.username), :class => 'navbar-link link' %> |
+        <% if current_user.partner? %>
+        <%= link_to 'Dashboard', dashboard_path(current_user.username), :class => 'navbar-link link' %> |
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link link' %> |
+        <% end %>
+        <% if current_user.customer? %>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link link' %> |
+        <% end %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link link'  %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link btn'  %>
@@ -36,20 +43,32 @@
 
   </div>
 
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+   
 
     <div id="page-content-wrapper">
       <div class="container-fluid">
-        <div class="row"></div>
+        <div class="row">
+           <div class="notice text-center">
+              <% if notice %>
+              <p class="alert alert-success"><%= notice %></p>
+              <% end %>
+              <% if alert %>
+              <p class="alert alert-danger"><%= alert %></p>
+              <% end %>
+            </div>
+        </div>
       </div>
     </div>
 
     <%= yield %>
 
   </body>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+    setTimeout(function(){
+    $('.notice').remove();
+    }, 3000);
+    })
+  </script>
 </html>

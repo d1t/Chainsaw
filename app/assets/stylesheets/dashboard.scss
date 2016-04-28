@@ -1,3 +1,79 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dash-well {
+	background: white;
+	padding-top: 80px;
+}
+
+ h1 {
+	font-size: 40px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	margin-top: -20px;
+	padding-bottom: 10px;
+}
+
+.dash-bio {
+	margin-left: 40px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.dash-bio h3 {
+	font-weight: 100;
+	font-size: 20px;
+}
+
+.dash-bio h5 {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.stats {
+	height: 350px;
+}
+
+.dash-well a:hover {
+	text-decoration: none;
+	background: none;
+	color: #000;
+	opacity: 1.6;
+	}
+
+
+.rev {
+	margin-left: 120px;
+	margin-top: 0px;
+	display: inline;
+	float: left;
+}
+
+.ord {
+	margin-right: 60px;
+	margin-top: 0px;
+	display: inline;
+	float: right;
+}
+
+.rev h5 span, .ord h5 span, .pend h5 span {
+	font-size: 60px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+
+.rev h5, .ord h5, .pend h5, .rpend h5 {
+	font-size: 40px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+
+
+.pend {
+	float: right;
+	margin-right: 180px;
+	margin-top: 60px;
+}
+
+
+

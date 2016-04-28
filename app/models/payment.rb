@@ -8,7 +8,7 @@ class Payment < ActiveRecord::Base
       :actionType => "PAY", #PAY
       :cancelUrl => "http://localhost:3000/samples/adaptive_payments/pay",
       :currencyCode => "GBP",
-      :feesPayer => "PRIMARYRECEIVER",
+      :feesPayer => "SECONDARYRECEIVER",
       :ipnNotificationUrl => "http://localhost:3000/samples/adaptive_payments/ipn_notify",
       :receiverList => {
         :receiver => [
@@ -23,7 +23,7 @@ class Payment < ActiveRecord::Base
           }
           ] },
       :returnUrl => "http://localhost:3000/samples/adaptive_payments/pay",
-      :senderEmail => 'some@business.business'
+      :senderEmail => 'info-buyer-1@cubeyapp.co'
       # :sender => {
       #   :accountId => 'user-4-1456240948'
       # }

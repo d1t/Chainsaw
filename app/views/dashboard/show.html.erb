@@ -1,35 +1,52 @@
-<div class="well" style="margin-right:auto; margin-left:auto;">
-<h1 class="text-center">Dashboard</h1>
+<h1 class="jig text-center">Dashboard</h1>
+<strong class="pull-right" style="margin-right: 20px; margin-top: -40px;"><%= Time.now.strftime("%d %b %Y") %></strong>
+<div class="well dash-well" style="margin-right:auto; margin-left:auto;">
 
-<% if partner_signed_in? %>
+	<div class="row">
+			
 
-		<%= image_tag(current_user.store.image_url(:avatar).to_s, class: 'img-circle') if current_user.store.image? %>
+		<% if user_signed_in? && current_user.store %>
 
-		<div class="bio">
-			<h3><%= current_user.store.brand_name %></h3>
-			<h5>@<%= current_user.username %></h5>
-			<h5><%= current_user.store.brand_bio %></h5>
-			<h5><strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers</h5>
+		<div class="col-md-3">
+			<%= image_tag(current_user.image_url(:avatar).to_s, class: 'img-circle') if current_user.image? %>
+
+			<div class="dash-bio">
+				<h3><%= current_user.name %></h3>
+				<h5>@<%= current_user.username %></h5>
+				<h5><%= current_user.bio %></h5>
+				<h5><strong>0</strong> following &nbsp; &nbsp; <strong>10k</strong> followers</h5>
+			</div>
 		</div>
 
-		<strong><%= Time.now.strftime("%d %b %Y") %></strong>	
+		<div class="stats">
+			<div class="col-md-4">
+				<div class="rev">
+					<h5>total revenue: <a href="#"><span>£20K</span></a></h5>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="ord">
+					<h5>orders: <br><a href="#"><span>100</span></a></h5>
+				</div>
+			</div>
+
+			
+			<div class="col-md-4-offset">
+				<div class="pend">
+					<h5>pending orders:<br><a href=""><span style="margin-left: 130px;"><%= current_user.orders.count %></span></a></h5>
+				</div>
+			</div>
+		</div>
 
 				
-				<h2 class="text-center">Orders</h2>
-				
-				<% current_user.orders.where(:order => @order.line_items).each do |order| %>
-					
-					<%= order.name %>
-					<%= order.email %>
+		<% else %>
 
-				<% end %>
+		<script type="text/javascript">
+    		window.location.href="/"  
+  		</script>
 
-
-				
-<% else %>
-
-<%= redirect_to root %>
-
-
+	</div>
+</div>
 </div>
 <% end %>

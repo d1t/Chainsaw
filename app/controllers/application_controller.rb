@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
 
+
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
     return unless request.get? 
@@ -29,6 +30,16 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  
+    def current_cart
+      Cart.find(session[:cart_id])
+      rescue ActiveRecord::RecordNotFound
+        cart = Cart.create
+        session[:cart_id] = cart.id
+        return cart # this will get returned
+      end
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
