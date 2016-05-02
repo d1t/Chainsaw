@@ -5,6 +5,8 @@ class ProfileController < ApplicationController
     @partner = User.find_by(username: params[:username])
     @products = Product.find_by(params[:id])
     @products = @partner.products
+    store = Store.find_by(params[:id])
+    @partner.store = @partner.store 
   end
 
 end

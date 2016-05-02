@@ -21,7 +21,7 @@
     <div class="navbar-text pull-right">
 
       <% if user_signed_in? %>
-        Hi <strong><%= link_to current_user.username %></strong>, |
+        Hi <strong><%= link_to current_user.username, profile_path(current_user.username) %></strong>, |
         <%  if current_user.admin? %>
           <%= link_to 'Invite User', new_user_invitation_path, :class => 'navbar-link link' %> |
         <% end %>

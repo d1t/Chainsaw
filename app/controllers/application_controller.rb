@@ -31,16 +31,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  
-    def current_cart
-      Cart.find(session[:cart_id])
-      rescue ActiveRecord::RecordNotFound
-        cart = Cart.create
-        session[:cart_id] = cart.id
-        return cart # this will get returned
-      end
-
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(
@@ -50,7 +40,8 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit(
-        :email, :password, :password_confirmation, :current_password, :username,
+        :email, :password, :password_confirmation, :current_password, :username, 
+        :name, :bio, :image,
         store_attributes: [:id, :image, :image_cache, :brand_bio, :remove_image, :brand_name]
       )
     end

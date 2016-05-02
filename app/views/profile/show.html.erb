@@ -16,8 +16,9 @@
 	</div>
 	<br />
 	<div class="text-center">
-		<%= link_to 'New Product', new_product_path, class: 'btn' %>
+		<%= link_to 'New Product', new_product_path, class: 'btn' if current_user.personal_profile?(params[:username]) %>
 	</div>
+
 <% else %>
 	<%= render 'profile' %>
 <% end %>

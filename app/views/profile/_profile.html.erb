@@ -1,4 +1,4 @@
-<%= image_tag @partner.image_url(:avatar).to_s, class: 'img-circle' %> 
+<%= image_tag @partner.image_url(:avatar).to_s, class: 'img-circle' if @partner.image.present? %>
 <div class="info">
 	<h4>@<%= @partner.username %></h4>
 	<h4><%= @partner.name %></h4>

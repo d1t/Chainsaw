@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :payments
   has_one :cart
 
-  after_create :default_store, :set_partner_role
+  after_create :set_partner_role, :default_store, :default_cart
 
   accepts_nested_attributes_for :store
   accepts_nested_attributes_for :cards
@@ -24,9 +24,6 @@ class User < ActiveRecord::Base
   # this should be send by devise automatically, need to check that
   # after_create { SignupNotifier.confirmation_mail(self).deliver }
 
-  def fullname
-  "#{first_name} #{last_name}"
-  end
 
   def to_param
     username
@@ -55,10 +52,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def personal_profile? user_name
+    username == user_name
+  end
+
   private
 
     def default_store
       self.create_store if partner?
+    end
+
+    def default_cart
+      self.create_cart
     end
 
     def set_partner_role

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  get '/:username' => 'profile#show', as: :profile
+  devise_for :users, controllers: { invitations: 'users/invitations' }
+  get 'profile/:username' => 'profile#show', as: :profile
   resources :cards, only: [:new, :create, :destroy]
 
   get '/:username/dashboard' => 'dashboard#show', as: :dashboard
